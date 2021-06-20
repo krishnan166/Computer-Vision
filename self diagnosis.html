@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<head>
+<title>iMentis</title>
+<script type="text/javascript">   
+function tabulateAnswers() {
+    // initialize variables for each choice's score
+    // If you add more choices and outcomes, you must add another variable here.
+    var c1score = 0;
+    var c2score = 0;
+    var c3score = 0;
+    var c4score = 0;
+    // get a list of the radio inputs on the page
+    var choices = document.getElementsByTagName('input');
+    // loop through all the radio inputs
+    for (i=1; i<=8; i++) {
+      // if the radio is checked..
+      if (choices[i].checked) {
+        // add 1 to that choice's score
+        if (choices[i].value == 'c1') {
+          c1score = c1score + 1;
+        }
+        if (choices[i].value == 'c2') {
+          c2score = c2score + 1;
+        }
+        if (choices[i].value == 'c3') {
+          c3score = c3score + 1;
+        }
+        if (choices[i].value == 'c4') {
+          c4score = c4score + 1;
+        }
+
+        // If you add more choices and outcomes, you must add another if statement below.
+      }
+    }
+    
+    // Find out which choice got the highest score.
+    // If you add more choices and outcomes, you must add the variable here.
+    var maxscore = Math.max(c1score,c2score,c3score,c4score);
+    
+    // Display answer corresponding to that choice
+    var answerbox = document.getElementById('answer');
+    if (c1score == maxscore) { // If user chooses the first choice the most, this outcome will be displayed.
+      answerbox.innerHTML = "You are a computer researcher! You will enjoy developing algorithms, and doing things with computers no one else has done before. For example, researchers sent a robot to the moon, built a computer to beat the best humans in Jeopardy, and are creating robots to do your chores for you. Computer researchers typically go to college and work at universities, or as a part of the research and development team in companies.";
+    }
+    if (c2score == maxscore) { // If user chooses the second choice the most, this outcome will be displayed.
+      answerbox.innerHTML = "You are an altruistic coder! You love to help people and feel the positive impact of your work every day. Altrustic coders are out there every day making the world a better place. Computer scientists write software to more effectively help doctors diagnose illnesses such as cancer, connect people in third world countries to education and medical resources on the internet, code websites and software for nonprofit organizations, and much more!";
+    }
+    if (c3score == maxscore) { // If user chooses the third choice the most, this outcome will be displayed.
+      answerbox.innerHTML = "You are a developer! Developers create games, apps, social media, movies, and all sorts of fun programs that people enjoy. These coders work on projects such as Minecraft, Poptropica, and Youtube. Developers need sharp coding skills, are great debuggers, and need to work well in a team of other developers.";
+    }
+    if (c4score == maxscore) { // If user chooses the fourth choice the most, this outcome will be displayed.
+      answerbox.innerHTML = "You are the future CEO of a new startup! You enjoy taking risks and building the next big thing that no one has even thought of before. For example, billionare Mark Zuckerberg founded Facebook in 2004, a project he started inside his dorm room in college which eventually turned into a social networking revolution that changed the world.";
+    }
+    // If you add more choices, you must add another response below.
+  }
+  
+  // program the reset button
+  function resetAnswer() {
+    var answerbox = document.getElementById('answer');
+    answerbox.innerHTML = "Your result will show up here!";
+  }
+  </script>
+<style>
+    body {
+    font-family: sans-serif;
+    background: lightblue;
+  }
+  h2 {
+    margin: 5px 0;
+  }
+  #wrapper {
+    width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+  input {
+    margin: 5px 10px;
+  }
+  button {
+    font-size: 18px;
+    padding: 10px;
+    margin: 20px 0;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    border-bottom: 3px solid #333;
+  }
+  #submit {
+    background: green;
+  }
+  #reset {
+    background: red;
+  }
+  #answer {
+    border: 1px dashed #ccc;
+    background: #eee;
+    padding: 10px;
+  }
+
+</style>
+
+
+<div id="wrapper">
+    <h1>Self Diagnosis Test</h1>
+    <p>Take this questionnaire to find out about your mental health!</p>
+    
+    <form id="quiz">
+        <!-- Question 0-->
+      <h3>How would you identify your gender identity?</h3>
+      <!-- Choices for the fifth question -->
+      <label><input type="radio" name="q1" value="c1">
+        Female
+      </label><br />
+      <label><input type="radio" name="q1" value="c2">
+        Male
+      </label><br />
+      <label><input type="radio" name="q1" value="c3">
+        Transexual
+      </label><br />
+      <label><input type="radio" name="q1" value="c4">
+        Intersex
+      </label><br />
+      
+      <!-- Question 1 -->
+      <h3>On an average, how many hours do you sleep everyday?</h3>
+      <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+      <!-- The value is which answer the choice corresponds to. -->
+      <label><input type="radio" name="q2" value="c1">
+        Less than 4 hours
+      </label><br />
+      <label><input type="radio" name="q2" value="c2">
+        4-6 hours
+      </label><br />
+      <label><input type="radio" name="q2" value="c3">
+        6-8 hours
+      </label><br />
+      <label><input type="radio" name="q2" value="c4">
+        9+ hours
+      </label><br />
+  
+      <!-- Question 2 -->
+      <h3>Have you felt people "dislike" you because of your sexual orientation/identity?</h3>
+      <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+      <label><input type="radio" name="q3" value="c1">
+        Yes
+      </label><br />
+      <label><input type="radio" name="q3" value="c2">
+        Not really
+      </label><br />
+      <label><input type="radio" name="q3" value="c3">
+        Don't know
+      </label><br />
+      <label><input type="radio" name="q3" value="c4">
+        No
+      </label><br />
+
+      <!-- Question 3 -->
+      <h3>During the past 4 weeks, how much of the time has your physical health or emotional problems
+  interfered with your social activities, such as visiting friends, relatives, etcetera?</h3>
+      <!-- Choices for the third question -->
+      <label><input type="radio" name="q4" value="c1">
+        All the time
+      </label><br />
+      <label><input type="radio" name="q4" value="c2">
+        Most of the time
+      </label><br />
+      <label><input type="radio" name="q4" value="c3">
+        Sometimes
+      </label><br />
+      <label><input type="radio" name="q4" value="c4">
+        Never
+      </label><br />
+      
+      <!-- Question 4 -->
+      <h3>Do you find yourself still in the "closet" because you are too concerned about your loved ones' reaction?</h3>
+      <!-- Choices for the fourth question -->
+      <label><input type="radio" name="q5" value="c1">
+        Yes
+      </label><br />
+      <label><input type="radio" name="q5" value="c2">
+        Not really
+      </label><br />
+      <label><input type="radio" name="q5" value="c3">
+        Only sometimes
+      </label><br />
+      <label><input type="radio" name="q5" value="c4">
+        No, I have come out openly.
+      </label><br />
+      
+      
+      
+      <!-- Question 5 -->
+      <h3>Have you been bullied or put away by people at workplace/school/college because you are queer?</h3>
+      <!-- Choices for the sixth question -->
+      <label><input type="radio" name="q4" value="c1">
+        Yes, It hits me hard.
+      </label><br />
+      <label><input type="radio" name="q4" value="c2">
+        Yes, but I hardly care.
+      </label><br />
+      <label><input type="radio" name="q2" value="c3">
+        Not sure 
+      </label><br />
+      <label><input type="radio" name="q4" value="c4">
+        No. People accept and love me for who I am.
+      </label><br />
+      
+     <!-- Question 6 -->
+      <h3>Are you constantly worried about acceptance?</h3>
+      <!-- Choices for the fourth question -->
+      <label><input type="radio" name="q4" value="c1">
+        Yes, I tend not to disclose my orientation/identity.
+      </label><br />
+      <label><input type="radio" name="q4" value="c2">
+        Yes, but I cope up with it mostly.
+      </label><br />
+      <label><input type="radio" name="q2" value="c3">
+        At times, yes
+      </label><br />
+      <label><input type="radio" name="q4" value="c4">
+        No.
+      </label><br />
+    
+    <!-- Question 7 -->
+      <h3>How would you rate your love for yourself?</h3>
+      <!-- Choices for the fourth question -->
+      <label><input type="radio" name="q4" value="c1">
+        I don't like myself
+      </label><br />
+      <label><input type="radio" name="q4" value="c2">
+        Maybe less than 5
+      </label><br />
+      <label><input type="radio" name="q4" value="c3">
+        Maybe a 6-9
+      </label><br />
+      <label><input type="radio" name="q4" value="c4">
+        A perfect 10.
+      </label><br />
+      
+
+      
+      
+      <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
+    <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
+    </form>
+    <div id="answer">Your result will show up here!</div>
+  </div>
+  </html>
