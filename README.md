@@ -1,2 +1,3 @@
 # iMentis
-A web application for LGBTQIA+ in India.
+
+A Common Mental health assessment & monitoring website exclusively for Indian LGBTQIA+ community.
